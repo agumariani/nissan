@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(to bottom,  #D3D3D3 , #f2f2f2);
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+
+.bg-image {
+  background-image: url('img/bg-login.jpg');
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #D3D3D3;
+}
+
+.logo {
+  padding: 5px;
+}
+
+a {
+  color: black;
+}
+
+.container {
+  width: 90%;
+  max-width: 1070px;
+  margin: auto;
+}
+
+.form-login {
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  padding: 80px 0;
+  /*overflow: hidden;*/
+}
+
+.input-group {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+.input-group .icons {
+  width: 35px;
+  height: 35px;
+  background-color: dodgerblue;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.input-group .form-control {
+  flex-grow: 1;
+  height: 35px;
+  border: transparent;
+  background-color: #fff;
+  color: #757575;
+  padding: 10px 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  outline: 0;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: orangered;
+}
+
+.btn {
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-flat-blue {
+  border: transparent;
+  height: 35px;
+  background-color: dodgerblue;
+  color: #fff;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+  font-weight: bold;
+  outline: 0;
+}
+
+.login-link {
+  text-align: center;
+  margin: auto;
+  display: block;
+  color: dodgerblue;
+}
+
+.grupoBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
