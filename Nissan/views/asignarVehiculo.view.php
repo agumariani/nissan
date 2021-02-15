@@ -36,26 +36,30 @@
 
   </div>
 
-  <div class="container">
-  <h1>Asignacion de Vehiculo</h1>
-  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-    <label for="">Vehiculo a asignar: </label>
-    <input list="vehiculos" name="vehiculo" id="vehiculo" class="form-control">
-    <?php 
+  <div class="container d-flex flex-column align-items-center">
+  <h1 class="text-center">Asignacion de Vehiculo</h1>
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="col-7 mt-3 d-flex flex-column">
+    <div class="mb-3">
+      <label for="" class="mb-2">Vehiculo a asignar: </label>
+      <?php 
 
-      echo $codigo;
-    ?>
-
-    <!--<input class="form-control" type="text" placeholder="Modelo" readonly  value="<?php echo utf8_encode($fila["modelo"]); ?>">-->
-
-    <label for="">Vendedor: </label>
-    <input list="vendedores" name="vendedor" id="vendedor" class="form-control">
-    <?php 
+        echo $codigo;
+      ?>
+    </div>
+    <div>
+      <label for="">Vendedor: </label>
+      <?php 
     
-      echo $codigoVendedor;  
+        echo $codigoVendedor;  
 
-    ?>
-    <button type="submit" class="btn btn-secondary mt-3" name="asignar">Asignar</button>
+      ?>
+    </div>
+    <div>
+        <?php if (!empty($errores)): ?>
+          <?php echo $errores ?>
+        <?php endif; ?>
+      </div>
+    <button type="submit" class="btn btn-secondary mt-3 col-3 align-self-center" name="asignar">Asignar</button>
   </form>
 
   </div>

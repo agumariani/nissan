@@ -1,13 +1,16 @@
 <?php  
-  header('Content-Type: text/xml'); 
   require 'admin/config.php';
   require 'functions.php';
   
+  $dominio = $_POST['Dominio'];
   $conexion = conexion($bd_config);
-  $statement = $conexion->prepare('SELECT * FROM vehiculos where idVehiculo = '.$_GET['numero']);
+  $statement = $conexion->prepare("SELECT * FROM vehiculos where idVehiculo = '$dominio'");
   $statement->execute();
 
   $fila = $statement-> fetch();
-  $codigoModelo = '<input type="text" class="form-control" value="" readonly '. $fila["modelo"].'>';
+  $codigoModelo = '<input type="text" class="form-control" value="'. $fila["modelo"].'" readonly >';
+  echo $codigoModelo;
+
+  require 'views/agregarHistorico.view.php';
 
 ?>

@@ -19,11 +19,13 @@ if ($admin['grupo'] == 'administrador') {
   $statement = $conexion->prepare('SELECT * FROM vehiculos ');
   $statement->execute();
 
-  $codigo = '<datalist id="vehiculos" onchange="procesar("vehiculo", "modelo")">';
+  $codigo = '<select id="vehiculos" name="vehiculo" class="form-control form-select">';
+  $codigo.='<option value="0">Seleccione un vehiculo</option>';
+
           while($fila = $statement-> fetch()){
           $codigo .= '<option value="'.utf8_encode($fila["idVehiculo"]).'">'.utf8_encode($fila["idVehiculo"]).'</option>';
         }
-      $codigo .= '</datalist>';
+      $codigo .= '</select>';
 
 
 
@@ -31,14 +33,22 @@ if ($admin['grupo'] == 'administrador') {
   $statement = $conexion->prepare('SELECT * FROM empleados');
   $statement->execute();
 
-  $codigoVendedor = '<datalist id="vendedores">';
+  $codigoVendedor = '<select id="vendedores" name="vendedor" class="form-control form-select">';
+  $codigoVendedor.='<option value="0">Seleccione un vendedor</option>';
+
           while($fila = $statement-> fetch()){
             $codigoVendedor .= '<option value="'.utf8_encode($fila["idEmpleado"]).'">'.utf8_encode($fila["idEmpleado"]).'</option>';
           }
-      $codigoVendedor .= '</datalist>';
+      $codigoVendedor .= '</select>';
 
       if(isset($_POST['asignar'])){
+        $errores = '';
+        if($_POST['vehiculo']==0 || $_POST['vendedor'] == 0){
+          $errores .= '<p class="text-center error">Por favor rellene todos los campos</p>';
+
+        }else{
         asignarVehiculo($bd_config, $_POST['vehiculo'], $_POST['vendedor']);
+      }
       }
 
 

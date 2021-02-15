@@ -19,12 +19,12 @@ if ($admin['grupo'] == 'administrador') {
   $conexion = conexion($bd_config);
   $statement = $conexion->prepare('SELECT * FROM vehiculos ');
   $statement->execute();
-
-  $codigo = '<datalist id="dominios">';
+  $codigo='<select id="dominios" class="form-control form-select" name="dominio">';
+  $codigo.='<option value="0">Seleccione un vehiculo</option>';
   while($fila = $statement->fetch()){
     $codigo .=  '<option value="'.utf8_encode($fila["idVehiculo"]).'">'.utf8_encode($fila["idVehiculo"]).'</option>';
   }
-  $codigo .= '</datalist>';
+  $codigo .= '</select>';
 
   if(isset($_POST['agregarVehiculo'])){
     $modelo = limpiarDatos($_POST['modelo']);
@@ -59,7 +59,7 @@ if ($admin['grupo'] == 'administrador') {
     $errores = '';
 
 
-    if (empty($dominio) || empty($modelo)) {
+    if ($dominio==0 || empty($modelo)) {
         $errores .= '<li class="error">Por favor rellene todos los campos</li>';
     }
     if($errores==''){
@@ -73,7 +73,7 @@ if ($admin['grupo'] == 'administrador') {
     $errores = '';
 
 
-    if (empty($dominio)) {
+    if ($dominio==0) {
         $errores .= '<li class="error">Por favor rellene todos los campos</li>';
     }
     if($errores==''){
